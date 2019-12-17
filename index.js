@@ -1,14 +1,8 @@
-const Sonus = require('sonus')
-const speech = require('@google-cloud/speech')
-const client = new speech.SpeechClient({
-	keyFilename: __dirname + '/keyfile.json'
-})
+const Assistant = require('./assistant.js');
 
-const hotwords = [{ file: __dirname +'/resources/models/computer.umdl', hotword: 'computer' }]
-const sonus = Sonus.init({ hotwords, recordProgram: 'arecord' }, client)
+let assistant = new Assistant();
 
-Sonus.start(sonus)
-sonus.on('hotword', (index, keyword) => console.log("!"))
-sonus.on('final-result', console.log)
 
-console.log('Listening...');
+
+
+console.log(assistant);
